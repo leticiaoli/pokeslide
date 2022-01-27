@@ -1,0 +1,11 @@
+//Reset
+@import 'reset/normalize.scss';
+@import 'reset/reset.scss';
+
+//Pages
+@import 'pages/home.scss';
+@import 'pages/pokemon.scss';
+
+//Components
+@import 'components/pokeSlide.scss';
+@import 'components/modal.scss';
