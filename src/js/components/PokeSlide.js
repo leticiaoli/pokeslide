@@ -1,11 +1,14 @@
 'use strict'
+import Services from './Services'
 
 const PokeSlide = {
 
     init: function () {
         this.slideHome()
+        this.pokeList()
     },
-
+    
+    
     slideHome: function(){
         $('.pokeSlide').slick({
             mobileFirst: true,
@@ -23,6 +26,11 @@ const PokeSlide = {
                 }
             ]
         })
+    },
+
+    pokeList: async function(){
+       const pokemons = await Services.pokeApi()
+       console.log(pokemons)
     }
 
 }
