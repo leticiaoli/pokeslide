@@ -102,7 +102,7 @@ gulp.task('script', function () {
 })
 
 gulp.task('script-dev', function () {
-    let testFiles = glob.sync(paths.scripts.input)
+    let testFiles = ["babel-polyfill", glob.sync(paths.scripts.input)]
     return browserify({
             entries: testFiles
         })

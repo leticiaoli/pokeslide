@@ -14,6 +14,7 @@
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
     "babel-core": "^6.26.3",
+    "babel-polyfill": "^6.26.0",
     "babelify": "^10.0.0",
     "browser-sync": "^2.26.7",
     "css-mqpacker": "^7.0.0",
@@ -34,6 +35,7 @@
     "gulp-terser": "^1.2.0",
     "gulp-webp": "^4.0.1",
     "node-sass": "^6.x",
+    "regenerator-runtime": "^0.13.9",
     "sass": "^1.49.0",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
