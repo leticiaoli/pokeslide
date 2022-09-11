@@ -8,6 +8,12 @@ const Services = {
         return $.get(endpoint, function(res){
             return res
         })
+    },
+
+    pokeDetail: function(pokeUrl){
+        return $.get(pokeUrl, function (res) {
+            return res
+        })
     }
 
 }

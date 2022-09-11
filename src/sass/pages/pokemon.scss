@@ -1,3 +1,37 @@
 #pokemon{
     background: #000;
 }
+
+.pokePage__menu{
+    background: #FF4848;
+    height: 120px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.pokePage__img{
+    height: 50%;
+    width: auto;
+    
+}
+
+.pokeBox{
+    background:#FF4848 ;
+
+    &__details{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 50px;
+    }
+}

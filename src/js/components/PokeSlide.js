@@ -1,10 +1,9 @@
-"use strict";
-import Services from "./Services";
+"use strict"
+import Services from "./Services"
 
 const PokeSlide = {
   init: function () {
-    this.pokeList();
-    this.slideHome();
+    this.pokeList()
   },
 
   slideHome: function () {
@@ -25,25 +24,31 @@ const PokeSlide = {
           },
         },
       ],
-    });
+    })
   },
 
   pokeList: async function () {
-    const pokemons = await Services.pokeApi();
-    pokemons?.results.map(function (pokemon) {
-      const pokeName = pokemon.name;
-      const pokeUrl = pokemon.url;
+    const _this = this
+    const pokemons = await Services.pokeApi()
+    
+    for(const pokemon of pokemons?.results){
+      const pokeName = pokemon.name
+      const pokeUrl = pokemon.url
+      const pokeDetail = await Services.pokeDetail(pokeUrl)
 
-      $.get(pokeUrl, function (res) {
-        const pokeSvg = res.sprites.other.dream_world.front_default;
-        const pokeItem = `<article class="pokeSlide__item">
-                <img class="pokeSlide__item-img" src="${pokeSvg}" alt="${pokeName}" title="${pokeName}">
-                <h2 class="pokeSlide__item-title"> ${pokeName} </h2>
-                </article>`;
-        $(".pokeSlide").append(pokeItem);
-      });
-    });
-  },
-};
+      const pokeSvg = pokeDetail.sprites.other.dream_world.front_default
+      const pokeId = pokeDetail.id
+      const pokeItem = `
+        <a href="/html/pokemon-page.html?pokeId=${pokeId}">
+          <article class="pokeSlide__item">
+            <img class="pokeSlide__item-img" src="${pokeSvg}" alt="${pokeName}" title="${pokeName}">
+            <h2 class="pokeSlide__item-title"> ${pokeName} </h2>
+          </article>
+        </a>`
+      $(".pokeSlide").append(pokeItem)
+    }
+      _this.slideHome()
+  }
+}
 
-export default PokeSlide;
+export default PokeSlide
